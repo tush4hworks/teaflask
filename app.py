@@ -39,6 +39,10 @@ def time_by_timezones():
 def time_by_country():
 	return render_template('tea_by_countries.html', timeinfo=get_timeinfo_for_all_countries())
 
+@app.route("/easter")
+def wwe_attitude():
+	return app.send_static_file('wwe.jpg')
+
 @app.route("/login", methods=['GET', 'POST'])
 def login():
 	if request.method == 'POST':
