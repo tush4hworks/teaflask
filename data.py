@@ -7,7 +7,6 @@ tea_list = {'TajMahal':'Good',
 			'RedLabel':'Poor',
 			'BaghBakri':'Average'}
 
-ambigous_time = datetime.datetime.now()
 
 def reverse_dict(tdict):
 	rdict = {}
@@ -25,6 +24,7 @@ def get_current_time(common_timezone):
 	return utc_dt.astimezone(tz).strftime(fmt)
 
 def get_timeinfo_for_all_timezones():
+	ambigous_time = datetime.datetime.now()
 	return sorted([(tz, get_current_time(tz)) for tz in pytz.common_timezones], 
 		key = lambda x: pytz.timezone(x[0]).utcoffset(ambigous_time).total_seconds())
 
