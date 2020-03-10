@@ -1,9 +1,8 @@
-from flask import render_template, Flask, request, url_for, redirect
-import flask
+from flask import render_template, Flask, request, url_for, redirect, flash
 import logging
 from flask_login import  LoginManager, login_user, login_required, logout_user, current_user
 import sys
-from data import tea_list
+from data import tea_list, get_timeinfo_for_all_timezones, get_timeinfo_for_all_countries
 from flaskuser import User
 login_manager = LoginManager()
 
@@ -32,13 +31,21 @@ def tea(tea):
 	app.logger.debug('Gentle {}'.format(tea))
 	return render_template('index.html', tea=tea, tea_list=tea_list, current_user=current_user)
 
+@app.route("/tea/timezones")
+def time_by_timezones():
+	return render_template('tea_by_timezones.html', timeinfo=get_timeinfo_for_all_timezones())
+
+@app.route("/tea/countrytimes")
+def time_by_country():
+	return render_template('tea_by_countries.html', timeinfo=get_timeinfo_for_all_countries())
+
 @app.route("/login", methods=['GET', 'POST'])
 def login():
 	if request.method == 'POST':
 		user = User(request.form['userid'])
 		#do some validation
 		login_user(user)
-		flask.flash('Logged in successfully.')
+		flash('Logged in successfully.')
 		next = request.args.get('next')
 		# is_safe_url should check if the url is safe for redirects.
 		# See http://flask.pocoo.org/snippets/62/ for an example.
@@ -47,7 +54,7 @@ def login():
 		    return flask.abort(400)
 		Shall implement this later -> https://web.archive.org/web/20190128010142/http://flask.pocoo.org/snippets/62/
 		'''
-		return flask.redirect(next or flask.url_for('index'))
+		return redirect(next or flask.url_for('index'))
 	return '''
 	    <form method="post">
 	        <p><input type=text name=userid>
@@ -58,7 +65,7 @@ def login():
 @app.route("/logout")
 def logout():
 	logout_user()
-	return flask.redirect(url_for('login'))
+	return redirect(url_for('login'))
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', debug=True)
