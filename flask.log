@@ -1,6 +1,0 @@
-WARNING:werkzeug: * Debugger is active!
-INFO:werkzeug: * Debugger PIN: 970-752-241
-DEBUG:flask.app:Gentle Criminal
-INFO:werkzeug:127.0.0.1 - - [08/Mar/2020 10:54:28] "GET / HTTP/1.1" 200 -
-DEBUG:flask.app:Gentle Criminal
-INFO:werkzeug:127.0.0.1 - - [08/Mar/2020 10:54:29] "GET / HTTP/1.1" 200 -
