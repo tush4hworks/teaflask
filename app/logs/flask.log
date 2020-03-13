@@ -1,5 +1,7 @@
-INFO:werkzeug:192.168.209.133 - - [11/Mar/2020 05:12:42] "GET /tea/timezones HTTP/1.1" 200 -
-INFO:werkzeug:192.168.209.133 - - [11/Mar/2020 05:12:43] "GET /tea/timezones HTTP/1.1" 200 -
-INFO:werkzeug:192.168.209.133 - - [11/Mar/2020 05:12:44] "GET /tea/timezones HTTP/1.1" 200 -
-INFO:werkzeug:192.168.209.133 - - [11/Mar/2020 05:12:45] "GET /tea/timezones HTTP/1.1" 200 -
-INFO:werkzeug:192.168.209.133 - - [11/Mar/2020 05:12:46] "GET /tea/timezones HTTP/1.1" 200 -
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 184-316-961
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2020 14:31:36] "GET /api/game/users HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2020 14:31:50] "GET /api/game/users/computer HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2020 14:31:55] "GET /api/game/users/mark HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2020 14:32:12] "PUT /api/game/users HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [13/Mar/2020 14:32:23] "PUT /api/game/users HTTP/1.1" 200 -

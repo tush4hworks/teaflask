@@ -5,6 +5,6 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ${LOGS_VOLUME}:/code/logs
+      - ${LOGS_VOLUME}:/teaflask/logs
       - ${DB_VOLUME}:/db
 
