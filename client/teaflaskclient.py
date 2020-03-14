@@ -3,14 +3,15 @@ from uplink import Consumer, Body, get, put, post, returns, response_handler, js
 import random
 from collections import defaultdict
 from pprint import pprint
+from requests import Response
 
-def raise_for_status(response):
+
+def raise_for_status(response: Response):
     """Checks whether or not the response was successful."""
-    if 200 <= response.status_code < 300:
-        # Pass through the response.
-        return response
-
-    print('Request resulted in error')
+    try:
+    	response.raise_for_status()
+    except Exception as e:
+    	print(e)
     return response
 
 @response_handler(raise_for_status)
