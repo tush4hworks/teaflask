@@ -1,7 +1,46 @@
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 184-316-961
-INFO:werkzeug:127.0.0.1 - - [13/Mar/2020 14:31:36] "GET /api/game/users HTTP/1.1" 405 -
-INFO:werkzeug:127.0.0.1 - - [13/Mar/2020 14:31:50] "GET /api/game/users/computer HTTP/1.1" 200 -
-INFO:werkzeug:127.0.0.1 - - [13/Mar/2020 14:31:55] "GET /api/game/users/mark HTTP/1.1" 404 -
-INFO:werkzeug:127.0.0.1 - - [13/Mar/2020 14:32:12] "PUT /api/game/users HTTP/1.1" 400 -
-INFO:werkzeug:127.0.0.1 - - [13/Mar/2020 14:32:23] "PUT /api/game/users HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Mar/2020 10:13:18] "GET /api/game/rolls HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Mar/2020 10:13:18] "GET /api/game/users/tony HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Mar/2020 10:13:18] "PUT /api/game/users HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [14/Mar/2020 10:13:18] "POST /api/game/games HTTP/1.1" 200 -
+ERROR:sqlalchemy.pool.impl.NullPool:Exception during reset or similar
+Traceback (most recent call last):
+  File "/home/dorian/PythonLearning/lib/python3.4/site-packages/sqlalchemy/pool/base.py", line 693, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/dorian/PythonLearning/lib/python3.4/site-packages/sqlalchemy/pool/base.py", line 880, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/dorian/PythonLearning/lib/python3.4/site-packages/sqlalchemy/engine/default.py", line 538, in do_rollback
+    dbapi_connection.rollback()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread.The object was created in thread id 140693322327808 and this is thread id 140693330720512
+ERROR:sqlalchemy.pool.impl.NullPool:Exception closing connection <sqlite3.Connection object at 0x7ff5bd770b90>
+Traceback (most recent call last):
+  File "/home/dorian/PythonLearning/lib/python3.4/site-packages/sqlalchemy/pool/base.py", line 693, in _finalize_fairy
+    fairy._reset(pool)
+  File "/home/dorian/PythonLearning/lib/python3.4/site-packages/sqlalchemy/pool/base.py", line 880, in _reset
+    pool._dialect.do_rollback(self)
+  File "/home/dorian/PythonLearning/lib/python3.4/site-packages/sqlalchemy/engine/default.py", line 538, in do_rollback
+    dbapi_connection.rollback()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread.The object was created in thread id 140693322327808 and this is thread id 140693330720512
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/dorian/PythonLearning/lib/python3.4/site-packages/sqlalchemy/pool/base.py", line 270, in _close_connection
+    self._dialect.do_close(connection)
+  File "/home/dorian/PythonLearning/lib/python3.4/site-packages/sqlalchemy/engine/default.py", line 544, in do_close
+    dbapi_connection.close()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread.The object was created in thread id 140693322327808 and this is thread id 140693330720512
+INFO:werkzeug:127.0.0.1 - - [14/Mar/2020 10:13:18] "GET /api/game/2eab0f0d-e38c-4ff6-b2e3-0f133f5e936f/status HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [14/Mar/2020 10:13:18] "POST /api/game/play_round HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Mar/2020 10:13:18] "GET /api/game/2eab0f0d-e38c-4ff6-b2e3-0f133f5e936f/status HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Mar/2020 10:13:18] "POST /api/game/play_round HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Mar/2020 10:13:18] "GET /api/game/2eab0f0d-e38c-4ff6-b2e3-0f133f5e936f/status HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Mar/2020 10:13:18] "POST /api/game/play_round HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Mar/2020 10:13:18] "GET /api/game/2eab0f0d-e38c-4ff6-b2e3-0f133f5e936f/status HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Mar/2020 10:13:18] "POST /api/game/play_round HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Mar/2020 10:13:18] "GET /api/game/2eab0f0d-e38c-4ff6-b2e3-0f133f5e936f/status HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Mar/2020 10:13:18] "POST /api/game/play_round HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Mar/2020 10:13:18] "GET /api/game/2eab0f0d-e38c-4ff6-b2e3-0f133f5e936f/status HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Mar/2020 10:13:18] "GET /api/game/2eab0f0d-e38c-4ff6-b2e3-0f133f5e936f/status HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Mar/2020 10:13:19] "GET /api/game/topscores HTTP/1.1" 200 -

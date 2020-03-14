@@ -3,7 +3,7 @@ from enum import Enum
 
 from game_logic.models.roll import Roll
 from gamedata import db_folder
-
+import os
 __winner_lookup = {}
 
 
@@ -49,7 +49,7 @@ def __build_decisions():
     if __winner_lookup:
         return
 
-    file = db_folder.get_db_path('battle-table.csv')
+    file = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'battle-table.csv')
 
     with open(file) as fin:
         reader = csv.DictReader(fin)

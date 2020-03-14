@@ -61,7 +61,7 @@ def wwe_attitude():
 def find_user(user):
 	u = game_service.find_player(user)
 	if not u:
-		abort(404)
+		abort(make_response(jsonify({"ERROR":"This user was not found"}), 404))
 	return jsonify(u.to_json())
 	
 @app.route("/api/game/users", methods=['PUT'])
@@ -72,7 +72,7 @@ def put_user():
 		p = game_service.create_player(request.json.get('user'))
 		return jsonify(p.to_json())
 	except Exception as e:
-		abort(make_response(str(e), 400))
+		abort(make_response(jsonify({"Exception":str(e)}), 400))
 
 @app.route("/api/game/games", methods=['POST'])
 def create_game():
@@ -88,7 +88,7 @@ def get_game_status(gameid):
 	is_over = game_service.is_game_over(gameid)
 	history = game_service.get_game_history(gameid)
 	if not history:
-		abort(404)
+		abort(make_response(jsonify({"ERROR":"This game was not found"}), 404))
 	r_lookup = {r.id:r for r in game_service.all_rolls()}
 	p_lookup = {p.id:p for p in game_service.all_players()}
 	player_0 = game_service.find_player_by_id(history[0].player_id)
@@ -100,7 +100,7 @@ def get_game_status(gameid):
 	data = {'is_over': is_over,
 			'player1': player_0.to_json(),
 			'player2': player_1.to_json(),
-			'winner': player_0.to_json() if wins_p1>=wins_p2 else player_1.name,
+			'winner': player_0.to_json() if wins_p1>=wins_p2 else player_1.to_json(),
 			'moves': [h.to_json(r_lookup[h.roll_id], p_lookup[h.player_id]) for h in history]
 			}
 
@@ -135,7 +135,7 @@ def play_round():
         })
     except Exception as x:
         # raise x
-        abort(make_response('Invalid request: {}'.format(x), 400))
+        abort(make_response(jsonify({'Invalid request': '{}'.format(x)}), 400))
 
 def validate_round_request():
     if not request.json:
