@@ -165,7 +165,7 @@ def validate_round_request():
 @app.route("/login", methods=['GET', 'POST'])
 def login():
 	if request.method == 'POST':
-		user = User(request.form['userid'])
+		user = User(request.form['username'])
 		#do some validation
 		login_user(user)
 		flash('Logged in successfully.')
@@ -180,7 +180,8 @@ def login():
 		return redirect(next or url_for('index'))
 	return '''
 	    <form method="post">
-	        <p><input type=text name=userid>
+	        <p><input type=text name=username>
+	        <p><input type=text name=password>
 	        <p><input type=submit value=Login>
 	    </form>
 	    '''
